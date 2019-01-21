@@ -4,7 +4,6 @@
 
 > The presented version comes from the early stage of application design.
 
-| 
 
 ![](https://raw.githubusercontent.com/skycompeu/xamarin-barcode-scanner/master/Screenshots/img_00.png)
 ![](https://raw.githubusercontent.com/skycompeu/xamarin-barcode-scanner/master/Screenshots/img_01.png)
