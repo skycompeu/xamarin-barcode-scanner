@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Report.RaportPreviewView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Helpers="clr-namespace:OmniReader.GUI.Helper"
+    x:Name="ReportPrevieViewPage"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems IsVisible="{Binding User.SuperUser}">
+        <ToolbarItem
+            Command="{Binding DeleteAllCommand}"
+            Priority="0"
+            Text="Wyczyść" />
+    </ContentPage.ToolbarItems>
+
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="Priority1"
+                x:TypeArguments="x:Int32"
+                Android="1"
+                iOS="0" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="Usuń wszystkie"
+            Activated="{Binding DeleteAllCommand}"
+            Order="Secondary"
+            Priority="{StaticResource Priority1}" />
+    </ContentPage.ToolbarItems>-->
+
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="Priority1"
+                x:TypeArguments="x:Int32"
+                Android="1"
+                iOS="0" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="Dodaj"
+            Activated="{Binding DeleteAllCommand}"
+            Order="Secondary"
+            Priority="{StaticResource Priority1}" />
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout
+                HeightRequest="40"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="End">
+                <ActivityIndicator
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}">
+                <ListView
+                    x:Name="LV_ReportList"
+                    ItemsSource="{Binding ReportList}"
+                    RowHeight="60"
+                    SelectionMode="None"
+                    SeparatorColor="Default"
+                    SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="ReportCell" IsEnabled="True">
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.DeleteRecordCommand, Source={x:Reference ReportPrevieViewPage}}"
+                                        CommandParameter="{Binding .}"
+                                        IsDestructive="True"
+                                        Text="{Binding DataValue, StringFormat='Usuń: {0}'}" />
+                                </ViewCell.ContextActions>
+
+                                <StackLayout
+                                    Padding="20,0,20,0"
+                                    Orientation="Horizontal"
+                                    VerticalOptions="Center">
+                                    <Image Source="btn_report.png" />
+                                    <StackLayout
+                                        Padding="10,0,0,0"
+                                        HorizontalOptions="StartAndExpand"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="Center">
+                                        <Label x:Name="Date" Text="{Binding DataValue}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.User.UserHomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Helpers="clr-namespace:OmniReader.GUI.Helper"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform
+                x:Key="Priority1"
+                x:TypeArguments="x:Int32"
+                Android="1"
+                iOS="0" />
+            <OnPlatform
+                x:Key="Priority2"
+                x:TypeArguments="x:Int32"
+                Android="0"
+                iOS="1" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="Dodaj"
+            Activated="BtnAdd_Clicked"
+            Order="Secondary"
+            Priority="{StaticResource Priority1}" />
+        <ToolbarItem
+            Name="Synchronizuj"
+            Activated="BtnSync_Clicked"
+            Order="Secondary"
+            Priority="{StaticResource Priority2}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Margin="0,0,0,0">
+            <ListView
+                x:Name="LV_UserList"
+                ItemTapped="LV_UserList_ItemTapped"
+                ItemsSource="{Binding UserList}"
+                SelectionMode="Single"
+                SeparatorColor="Default"
+                SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:Name="ReportCell" IsEnabled="True">
+                            <StackLayout
+                                Padding="10,0,20,0"
+                                Orientation="Horizontal"
+                                VerticalOptions="Center">
+                                <Image Source="user.png" />
+                                <StackLayout
+                                    Padding="10,0,0,0"
+                                    HorizontalOptions="StartAndExpand"
+                                    Orientation="Horizontal"
+                                    VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" />
+                                    <Label Text="{Binding Surname}" />
+                                </StackLayout>
+                                <Image IsVisible="{Binding Active}" Source="active.png" />
+                                <Image IsVisible="{Binding Active, Converter={Helpers:InverseBoolConverter}}" Source="inactive.png" />
+                            </StackLayout>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

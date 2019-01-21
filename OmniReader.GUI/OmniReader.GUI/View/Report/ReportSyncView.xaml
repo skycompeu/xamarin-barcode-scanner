@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Report.ReportSyncView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="ReportSyncViewXaml"
+    Title="{Binding Title}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout Margin="15">
+                <BoxView
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    CornerRadius="10"
+                    StyleClass="config__boxview" />
+
+                <Label
+                    AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    StyleClass="config_labelLarge"
+                    Text="Okres:" />
+
+                <Label
+                    AbsoluteLayout.LayoutBounds="10, 35, 0.95, 45"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    StyleClass="config_labelMedium"
+                    Text="{Binding ReportPeriod}" />
+
+                <ActivityIndicator
+                    AbsoluteLayout.LayoutBounds="10, 25, 1.5, 25"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    HorizontalOptions="Center"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="EndAndExpand" />
+            </AbsoluteLayout>
+
+
+            <!--  Progress  -->
+            <ProgressBar
+                Margin="0,0,0,0"
+                HorizontalOptions="CenterAndExpand"
+                Progress="{Binding ProgressBarValue, Mode=OneWay}"
+                Scale="5"
+                VerticalOptions="End"
+                WidthRequest="55" />
+
+            <!--  Info  -->
+            <AbsoluteLayout Margin="15">
+                <BoxView
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 46"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    CornerRadius="10"
+                    StyleClass="config__boxview" />
+                <Label
+                    AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    StyleClass="config_labelMedium"
+                    Text="{Binding ReportInfo}" />
+            </AbsoluteLayout>
+
+            <ContentView
+                x:Name="overlay"
+                Padding="10,0"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="#C0808010"
+                IsVisible="False">
+                <ProgressBar
+                    x:Name="ProgressBar"
+                    Progress="{Binding ProgressBarValue}"
+                    VerticalOptions="Center" />
+            </ContentView>
+
+            <StackLayout Orientation="Horizontal">
+                <Button
+                    BorderRadius="10"
+                    Command="{Binding StartSyncCommand}"
+                    HeightRequest="110"
+                    HorizontalOptions="CenterAndExpand"
+                    Image="btn_start.png"
+                    IsEnabled="{Binding BtnStartEnabled}"
+                    Text="Start"
+                    WidthRequest="130" />
+
+                <Button
+                    BorderRadius="10"
+                    Command="{Binding StopSyncCommand}"
+                    HeightRequest="110"
+                    HorizontalOptions="CenterAndExpand"
+                    Image="btn_stop.png"
+                    IsEnabled="{Binding BtnStopEnabled}"
+                    Text="Stop"
+                    WidthRequest="130" />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+

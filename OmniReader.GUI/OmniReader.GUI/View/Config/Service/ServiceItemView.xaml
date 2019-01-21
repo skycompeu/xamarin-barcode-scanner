@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.Service.ServiceItemView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="ServiceItemViewXml"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="BtnSave"
+            Command="{Binding SaveCommand}"
+            Text="Zapisz" />
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout Padding="10,10,10,10">
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="Nazwa usługi" />
+                    <Entry
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Text="{Binding Service.Name}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 65"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <StackLayout
+                        AbsoluteLayout.LayoutBounds="10, 10, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Orientation="Horizontal">
+                        <Label
+                            HorizontalOptions="StartAndExpand"
+                            StyleClass="config_labelMedium"
+                            Text="Aktywna"
+                            VerticalOptions="Center" />
+                        <Switch IsToggled="{Binding Service.Active}" />
+                    </StackLayout>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="Ostatnia modifikacja" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelMedium"
+                        Text="{Binding Service.ModifiedAt}" />
+                </AbsoluteLayout>
+                <ListView
+                    x:Name="LV_ValidationError"
+                    ItemsSource="{Binding ValidationErrors}"
+                    RowHeight="60"
+                    SelectionMode="Single"
+                    SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="ServiceCell" IsEnabled="True">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="{Binding ErrorMessage}"
+                                    TextColor="Red"
+                                    VerticalOptions="Center" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+
+</ContentPage>

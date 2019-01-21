@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pl.skycomp.omnireader" android:installLocation="auto" android:versionCode="1" android:versionName="1.4">
+	<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="27" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="com.symbol.emdk.permission.EMDK" />
+	<uses-permission android:name="com.symbol.emdk.permission.EMDK" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<application android:label="OmniReader" android:icon="@mipmap/or_logo">
+		<uses-library android:name="com.symbol.emdk" />
+	</application>
+</manifest>

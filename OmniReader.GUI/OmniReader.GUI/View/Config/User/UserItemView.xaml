@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.User.UserItemView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="UserItemViewXml"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="BtnSave"
+            Command="{Binding SaveCommand}"
+            Text="Zapisz" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        Margin="5,0,0,0"
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="Imie" />
+                    <Entry
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_entry"
+                        Text="{Binding User.Name}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="Nazwisko" />
+                    <Entry
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_entry"
+                        Text="{Binding User.Surname}" />
+                </AbsoluteLayout>
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="PIN" />
+                    <Entry
+                        Margin="0,0,0,0"
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Keyboard="Numeric"
+                        StyleClass="config_frame"
+                        Text="{Binding User.Pin}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 65"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <StackLayout
+                        AbsoluteLayout.LayoutBounds="10, 10, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Orientation="Horizontal">
+                        <Label
+                            HorizontalOptions="StartAndExpand"
+                            StyleClass="config_labelMedium"
+                            Text="Administrator"
+                            VerticalOptions="Center" />
+                        <Switch IsToggled="{Binding User.SuperUser}" />
+                    </StackLayout>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 65"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <StackLayout
+                        AbsoluteLayout.LayoutBounds="10, 10, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Orientation="Horizontal">
+                        <Label
+                            HorizontalOptions="StartAndExpand"
+                            StyleClass="config_labelMedium"
+                            Text="Aktywny"
+                            VerticalOptions="Center" />
+                        <Switch IsToggled="{Binding User.Active}" />
+                    </StackLayout>
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="Ostatnia modifikacja" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelMedium"
+                        Text="{Binding User.ModifiedAt, StringFormat=' {0:yyyy-MM-dd HH:mm:ss}'}" />
+                </AbsoluteLayout>
+                <ListView
+                    x:Name="LV_ValidationError"
+                    ItemsSource="{Binding ValidationErrors}"
+                    SelectionMode="None"
+                    SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="UserCell" IsEnabled="True">
+                                <Label
+                                    FontSize="Medium"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding ErrorMessage}"
+                                    TextColor="Red"
+                                    VerticalOptions="Center" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

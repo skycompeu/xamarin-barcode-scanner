@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Report.ReportHomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Helpers="clr-namespace:OmniReader.GUI.Helper"
+    x:Name="ReportHomeViewXml"
+    Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout
+                HeightRequest="40"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="End">
+                <ActivityIndicator
+                    HeightRequest="40"
+                    HorizontalOptions="CenterAndExpand"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}">
+                <ListView
+                    x:Name="LV_ReportList"
+                    ItemTapped="LV_ReportList_ItemTapped"
+                    ItemsSource="{Binding ReportList}"
+                    RowHeight="60"
+                    SelectionMode="Single"
+                    SeparatorColor="Default"
+                    SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="ReportCell" IsEnabled="True">
+                                <StackLayout
+                                    Padding="10,0,5,0"
+                                    Orientation="Horizontal"
+                                    VerticalOptions="Center">
+                                    <!--<Image Source="btn_report.png" />-->
+                                    <StackLayout
+                                        Padding="0,0,0,0"
+                                        HorizontalOptions="StartAndExpand"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="Center">
+                                        <Label x:Name="Date" Text="{Binding Date, StringFormat=' {0:yyyy-MM-dd}'}" />
+                                        <Label Text="{Binding Parcels.Count, StringFormat='Suma: {0}'}" />
+                                    </StackLayout>
+                                    <Button
+                                        x:Name="Btn_ShowRaports"
+                                        BindingContext="{Binding Date, StringFormat=' {0:yyyy-MM-dd}'}"
+                                        BorderColor="White"
+                                        BorderRadius="30"
+                                        Clicked="Btn_ShowRaports_Clicked"
+                                        HeightRequest="45"
+                                        Image="btn_report.png"
+                                        WidthRequest="45" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+        </StackLayout>
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

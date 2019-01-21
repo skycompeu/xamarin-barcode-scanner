@@ -1,0 +1,149 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>1.0.0.149</AssemblyVersion>
+    <FileVersion>1.0.0.8</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets\Style\Page\**" />
+    <Compile Remove="View\Partials\**" />
+    <EmbeddedResource Remove="Assets\Style\Page\**" />
+    <EmbeddedResource Remove="View\Partials\**" />
+    <None Remove="Assets\Style\Page\**" />
+    <None Remove="View\Partials\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OmniReader.Core\OmniReader.Core.csproj" />
+    <ProjectReference Include="..\..\OmniReader.Data\OmniReader.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="View\Config\ConfigHomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\Device\DeviceConfigView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\Service\ServiceHomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\Service\ServiceItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\Sync\SyncService.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\Sync\SyncUserView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\User\UserHomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Config\User\UserItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Home\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Login\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Report\RaportPreviewView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Report\ReportHomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Report\ReportSyncView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Scan\ScanHomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Scan\ScanHomeServiceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\Home\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Report\RaportPreviewView.xaml.cs">
+      <DependentUpon>RaportPreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Scan\ScanHomeView.xaml.cs">
+      <DependentUpon>ScanHomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Scan\ScanHomeServiceView.xaml.cs">
+      <DependentUpon>ScanHomeServiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\Scan\ScannerView.xaml.cs">
+      <DependentUpon>ScannerView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\ConfigHomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\Device\DeviceConfigView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\Service\ServiceHomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\Service\ServiceItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\Sync\SyncService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\Sync\SyncUserView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\User\UserHomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Config\User\UserItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Home\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Login\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Report\ReportHomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Report\ReportSyncView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Scan\ScanHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Scan\ScanService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Scan\ScanSingle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Scan.ScannerView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Helpers="clr-namespace:OmniReader.GUI.Helper"
+    x:Name="ScannerViewPage"
+    Title="{Binding Title}">
+
+
+    <ContentPage.Content>
+        <StackLayout StyleClass="stackLayoutScan">
+            <!--  stackLayoutScanHeader  -->
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                StyleClass="stackLayoutScanHeader">
+
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding ScannerStatus}"
+                    VerticalOptions="Center" />
+
+                <Button
+                    BorderRadius="30"
+                    Command="{Binding NavigateToReportCommand}"
+                    HorizontalOptions="EndAndExpand"
+                    Image="writing.png"
+                    IsEnabled="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}"
+                    WidthRequest="40" />
+            </StackLayout>
+
+            <!--  Separator  -->
+            <StackLayout StyleClass="Separator">
+                <BoxView HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <!--  stackLayoutScanCounter  -->
+            <StackLayout
+                Orientation="Horizontal"
+                StyleClass="stackLayoutScanCounter"
+                VerticalOptions="FillAndExpand">
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding InputDataList.Count, StringFormat='Licznik = {0:D5}'}"
+                    VerticalOptions="Center" />
+
+                <Switch
+                    HorizontalOptions="EndAndExpand"
+                    IsToggled="{Binding HidePanel}"
+                    OnColor="Green" />
+
+            </StackLayout>
+
+            <!--  Separator  -->
+            <StackLayout StyleClass="Separator">
+                <BoxView HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <!--  stackLayoutScanHidePanel  -->
+            <StackLayout
+                IsVisible="{Binding HidePanel}"
+                Orientation="Horizontal"
+                StyleClass="stackLayoutScanHidePanel"
+                VerticalOptions="FillAndExpand">
+                <Entry
+                    HorizontalOptions="StartAndExpand"
+                    Placeholder="Nr. Paczki"
+                    Text="{Binding ParcelNumber}"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="200" />
+                <Button
+                    BackgroundColor="#005da0"
+                    BorderRadius="30"
+                    Command="{Binding InsertRecordCommand}"
+                    HorizontalOptions="EndAndExpand"
+                    Text="+"
+                    TextColor="White"
+                    WidthRequest="40" />
+            </StackLayout>
+
+            <!--  Separator  -->
+            <StackLayout IsVisible="{Binding HidePanel}" StyleClass="Separator">
+                <BoxView HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <!--  ListView  -->
+            <StackLayout>
+                <ListView
+                    x:Name="LV_Data"
+                    CachingStrategy="RecycleElementAndDataTemplate"
+                    HasUnevenRows="true"
+                    ItemsSource="{Binding InputDataList}"
+                    SelectionMode="None"
+                    SeparatorVisibility="Default"
+                    VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="DataCell" IsEnabled="True">
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                        Command="{Binding Path=BindingContext.DeleteRecordCommand, Source={x:Reference ScannerViewPage}}"
+                                        CommandParameter="{Binding .}"
+                                        IsDestructive="True"
+                                        Text="{Binding DataValue, StringFormat='Usuń: {0}'}" />
+                                </ViewCell.ContextActions>
+                                <Label
+                                    Margin="5,5,5,5"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding DataValue}"
+                                    VerticalTextAlignment="Center" />
+                            </ViewCell>
+                        </DataTemplate>
+                        <!--  /DataTemplate  -->
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

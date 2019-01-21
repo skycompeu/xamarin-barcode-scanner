@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.Device.DeviceConfigView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="BtnSave"
+            Command="{Binding SaveCommand}"
+            Text="Zapisz" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 85"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="ID czytnika" />
+                    <Entry
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 40"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        Keyboard="Numeric"
+                        StyleClass="config_entry"
+                        Text="{Binding DeviceId}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 90"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="API: Url" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 45"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelMedium"
+                        Text="{Binding ApiEndpoint}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 90"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="API: Użytkownik" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 45"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelMedium"
+                        Text="{Binding ApiUser}" />
+                </AbsoluteLayout>
+
+                <AbsoluteLayout Margin="15">
+                    <BoxView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 90"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        CornerRadius="10"
+                        StyleClass="config__boxview" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelSmall"
+                        Text="API: Hasło" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="10, 35, 0.95, 45"
+                        AbsoluteLayout.LayoutFlags="WidthProportional"
+                        StyleClass="config_labelMedium"
+                        Text="{Binding ApiToken}" />
+                </AbsoluteLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

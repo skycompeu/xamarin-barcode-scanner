@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Scan.ScanHome"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}">
+    <ContentPage.Content>
+
+        <Grid Padding="20,50,20,50">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="Btn_NavigateSingle"
+                Grid.Row="0"
+                Grid.Column="0"
+                BorderRadius="20"
+                Clicked="Btn_NavigateSingle_Clicked"
+                Image="btn_parcel_single.png"
+                Text="Paczki pojedyncze" />
+
+            <Button
+                x:Name="Btn_NavigateMulti"
+                Grid.Row="1"
+                Grid.Column="0"
+                BorderRadius="20"
+                Clicked="Btn_NavigateMulti_Clicked"
+                Image="btn_parcel_group.png"
+                Text="Paczki zbiorcze" />
+
+            <Button
+                x:Name="Btn_NavigateService"
+                Grid.Row="2"
+                Grid.Column="0"
+                BorderRadius="20"
+                Clicked="Btn_NavigateService_Clicked"
+                Image="btn_parcel_service.png"
+                Text="Paczki z usługą" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

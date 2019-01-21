@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.HomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout Margin="30,30,30,0">
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                HorizontalOptions="Center"
+                Text="{Binding UserName}"
+                VerticalOptions="Center" />
+
+            <Button
+                x:Name="Btn_MenuScan"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                BorderRadius="20"
+                Clicked="Btn_MenuScan_Clicked"
+                Image="btn_scanner.png"
+                Text="Skanowanie" />
+
+            <Button
+                x:Name="Btn_MenuReport"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                BorderRadius="20"
+                Clicked="Btn_MenuReport_Clicked"
+                Image="btn_report.png"
+                Text="Raporty" />
+
+            <Button
+                x:Name="Btn_MenuConfig"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                BorderRadius="20"
+                Clicked="Btn_MenuConfig_Clicked"
+                Image="btn_config.png"
+                IsVisible="{Binding User.SuperUser}"
+                Text="Konfiguracja" />
+            <Button
+                x:Name="Btn_Logout"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                BorderRadius="20"
+                Command="{Binding LogoutCommand}"
+                Image="btn_logout.png"
+                Text="Wyloguj" />
+            <Label
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="0,0,0,15"
+                HorizontalOptions="Center"
+                Text="{Binding Version}"
+                VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+
+
+
+
+
+
+
+
+
+</ContentPage>

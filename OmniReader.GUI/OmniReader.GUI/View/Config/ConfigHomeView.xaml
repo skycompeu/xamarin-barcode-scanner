@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.ConfigHomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Helpers="clr-namespace:OmniReader.GUI.Helper"
+    Title="{Binding Title}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,50,20,50">
+                <Button
+                    x:Name="Btn_UserHome"
+                    BorderRadius="20"
+                    Clicked="Btn_UserHome_Clicked"
+                    Image="btn_config_user.png"
+                    IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}"
+                    Text="Użytkownicy" />
+
+                <Button
+                    x:Name="Btn_ServiceHome"
+                    Margin="0,15,0,0"
+                    BorderRadius="20"
+                    Clicked="Btn_ServiceHome_Clicked"
+                    Image="service.png"
+                    IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}"
+                    Text="Usługi" />
+
+                <Button
+                    x:Name="Btn_DeviceHome"
+                    Margin="0,15,0,0"
+                    BorderRadius="20"
+                    Clicked="Btn_DeviceHome_Clicked"
+                    Image="btn_config_device.png"
+                    IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}"
+                    Text="Urządzenie" />
+
+                <Button
+                    x:Name="Btn_DataBaseClear"
+                    Margin="0,15,0,0"
+                    BorderRadius="20"
+                    Command="{Binding ClearDatabaseCommand}"
+                    Image="btn_delete_database.png"
+                    IsVisible="{Binding IsBusy, Converter={Helpers:InverseBoolConverter}}"
+                    Text="Uśuń dane" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

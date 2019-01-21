@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OmniReader.GUI.Renderer"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center">
+
+            <StackLayout Margin="0,20,0,0" HorizontalOptions="Center">
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Użytkownik:" />
+
+                <local:CustomPickerRenderer
+                    x:Name="PickerUser"
+                    Margin="0,10,0,0"
+                    ItemDisplayBinding="{Binding FullName}"
+                    ItemsSource="{Binding UserList}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding SelectedUser}" />
+
+                <Label
+                    Margin="0,20,0,0"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{Binding HashPin}" />
+            </StackLayout>
+
+            <StackLayout Margin="0,10,0,0">
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="55" />
+                        <RowDefinition Height="55" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55" />
+                        <ColumnDefinition Width="55" />
+                        <ColumnDefinition Width="55" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="btn_1"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_1}"
+                        StyleClass="button"
+                        Text="1" />
+                    <Button
+                        x:Name="btn_2"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_2}"
+                        StyleClass="btn btn-primary"
+                        Text="2" />
+                    <Button
+                        x:Name="btn_3"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_3}"
+                        StyleClass="btn btn-primary"
+                        Text="3" />
+                    <Button
+                        x:Name="btn_4"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_4}"
+                        StyleClass="btn btn-primary"
+                        Text="4" />
+                    <Button
+                        x:Name="btn_5"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_5}"
+                        StyleClass="btn btn-primary"
+                        Text="5" />
+                    <Button
+                        x:Name="btn_6"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_6}"
+                        StyleClass="btn btn-primary"
+                        Text="6" />
+                    <Button
+                        x:Name="btn_7"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_7}"
+                        StyleClass="btn btn-primary"
+                        Text="7" />
+                    <Button
+                        x:Name="btn_8"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_8}"
+                        StyleClass="btn btn-primary"
+                        Text="8" />
+                    <Button
+                        x:Name="btn_9"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_9}"
+                        StyleClass="btn btn-primary"
+                        Text="9" />
+                    <Button
+                        x:Name="btn_0"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_0}"
+                        StyleClass="btn btn-primary"
+                        Text="0" />
+                    <Button
+                        x:Name="btn_C"
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_C}"
+                        StyleClass="btn btn-danger"
+                        Text="C" />
+                    <Button
+                        x:Name="btn_"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        BorderRadius="20"
+                        Command="{Binding ButtonPress}"
+                        CommandParameter="{x:Reference btn_}"
+                        StyleClass="btn btn-primary"
+                        Text="+" />
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+
+
+</ContentPage>

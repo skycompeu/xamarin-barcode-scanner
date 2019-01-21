@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>1.0.0.82</AssemblyVersion>
+    <FileVersion>1.0.0.4</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Command\**" />
+    <Compile Remove="Logger\**" />
+    <Compile Remove="Utils\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <EmbeddedResource Remove="Logger\**" />
+    <EmbeddedResource Remove="Utils\**" />
+    <None Remove="Command\**" />
+    <None Remove="Logger\**" />
+    <None Remove="Utils\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreshMvvm" Version="2.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="RestSharp" Version="106.5.4" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OmniReader.Data\OmniReader.Data.csproj" />
+  </ItemGroup>
+
+</Project>

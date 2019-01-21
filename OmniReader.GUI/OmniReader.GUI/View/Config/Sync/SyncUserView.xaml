@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="OmniReader.GUI.View.Config.Sync.SyncUserView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="SyncUserXamal"
+    Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout Margin="15">
+                <BoxView
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 70"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    CornerRadius="10"
+                    StyleClass="config__boxview" />
+
+                <Label
+                    AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    StyleClass="config_labelLarge"
+                    Text="{Binding SyncType}" />
+
+                <ActivityIndicator
+                    AbsoluteLayout.LayoutBounds="10, 25, 1.5, 25"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    HorizontalOptions="Center"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="EndAndExpand" />
+            </AbsoluteLayout>
+
+            <!--  Info  -->
+            <AbsoluteLayout Margin="15">
+                <BoxView
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 46"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    CornerRadius="10"
+                    StyleClass="config__boxview" />
+                <Label
+                    AbsoluteLayout.LayoutBounds="10, 10, 1, 20"
+                    AbsoluteLayout.LayoutFlags="WidthProportional"
+                    StyleClass="config_labelMedium"
+                    Text="{Binding Info}" />
+            </AbsoluteLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button
+                    BorderRadius="10"
+                    Command="{Binding StartSync}"
+                    HeightRequest="110"
+                    HorizontalOptions="CenterAndExpand"
+                    Image="btn_start.png"
+                    IsEnabled="{Binding BtnStartEnabled}"
+                    Text="Start"
+                    WidthRequest="130" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

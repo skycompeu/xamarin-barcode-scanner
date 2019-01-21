@@ -1,0 +1,127 @@
+﻿/*color
+background-color
+font-family
+font-size
+font-style
+height
+width
+border-color
+border-width
+visibility
+opacity
+text-align
+margin - left | right | top | bottom
+padding - left | right | top | bottom*/
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+^contentpage {
+    background-color: white;
+}
+
+/*navigationpage {
+    -xf-bar-background-color: lightgray;
+}*/
+
+.config__boxview {
+    background-color: lightgray;
+    border-color: #28A745;
+}
+
+.config_labelSmall {
+    color: black;
+    font-size: 12;
+}
+
+.config_labelMedium {
+    color: black;
+    font-size: 14;
+}
+
+.config_labelLarge {
+    color: black;
+    font-size: 16;
+}
+
+.config_entry {
+    color: black;
+    font-size: 16;
+}
+
+.config_buttonStart {
+    color: black;
+    background-color: white;
+    border-color: #28A745;
+}
+
+
+
+
+/*.btn-success {
+    background-color: white;
+    border-color: #218838;
+    color: #218838;
+}
+
+.btn-danger {
+    background-color: white;
+    border-color: #C82333;
+    color: #C82333;
+}
+
+.btn-primary {
+    background-color: white;
+    border-color: #0069D9;
+    color: #0069D9;
+}
+
+.btn-secondary {
+    background-color: white;
+    border-color: #5A6268;
+    color: #5A6268;
+}*/
+
+/* ------------------------------ Separator ------------------------------ */
+.Separator > BoxView {
+    background-color: Gray;
+    height: 2;
+}
+
+/* ------------------------------ ScanPage ------------------------------ */
+.stackLayoutScan {
+    padding-top: 5;
+    padding-right: 5;
+    padding-bottom: 5;
+    padding-left: 5;
+}
+
+.stackLayoutScanHeader {
+    height: 40;
+}
+
+.stackLayoutScanHeader > Button {
+    background-color: #005da0;
+    height: 40;
+}
+
+.stackLayoutScanHeader > Label {
+    font-size: 16;
+}
+
+.stackLayoutScanCounter {
+    height: 40;
+}
+
+.stackLayoutScanCounter > Label {
+    font-size: 16;
+}
+
+.stackLayoutScanHidePanel {
+    height: 40;
+}
+
+.stackLayoutScanHidePanel > Entry {
+    font-size: 16;
+}
